@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block contnet %}
+<div class="bs-example container" data-example-id="panel-with-footer" >
+    <div class="panel panel-default">
+      <div class="panel-body">
+        {{ tittle }}
+      </div>
+      <div class="panel-footer">
+        <div class="bs-example" data-example-id="basic-forms">
+    <div class="bs-example" data-example-id="simple-horizontal-form" style="padding: 10px;">
+    <form class="form-horizontal" method="post" action="/admin/add/" novalidate>
+        {% csrf_token %}
+                       {% for field in form %}
+                    <div class="form-group">
+                        <label>{{ field.label }}: </label>{{ field }}
+
+                        <!-- 数据校验,显示错误信息 -->
+                        <span style="color: red;">{{field.errors.0}}</span>
+                    </div>
+                {% endfor %}
+
+
+
+      <button type="submit" class="btn btn-default" style="margin-top: 10px">提交</button>
+    </form>
+  </div>
+      </div>
+    </div>
+     </div>
+     </div>
+{% endblock %}

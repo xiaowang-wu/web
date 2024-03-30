@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block contnet %}
+<div class="container"> <a href="/depart/add/"><button class="btn btn-success">新建部门</button></a>
+</div>
+<div class="container" style="margin-top: 10px">
+    <div class="bs-example" data-example-id="panel-with-footer">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        部门列表
+      </div>
+      <div class="panel-footer">
+          <div class="bs-example" data-example-id="striped-table">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>部门</th>
+          <th>操作</th>
+
+        </tr>
+      </thead>
+      <tbody>
+      {% for item in datalist %}
+      <tr>
+          <td>{{ item.id }}</td>
+          <td>{{ item.tittle }}</td>
+          <td>
+
+              <a href="/depart/edit/{{ item.id }}/"><button class="btn btn-primary btn-xs" name="edit">编辑</button></a>
+              <a href="/depart/delete/?ind={{ item.id }}"><button class="btn btn-danger btn-xs">删除</button></a>
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+      </div>
+    </div>
+  </div></div>
+{% endblock %}
