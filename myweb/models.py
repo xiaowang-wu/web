@@ -80,3 +80,8 @@ class Order(models.Model):
     )
     status = models.SmallIntegerField(choices=statue_choice, verbose_name='支付状态', max_length=32)
     user = models.ForeignKey(verbose_name='客户姓名', max_length=20,to=Userinfo,on_delete=models.CASCADE)
+
+class Static(models.Model):
+    salary = models.CharField(verbose_name='薪资',max_length=32)
+    months = models.CharField(verbose_name='月份',max_length=32)
+    work = models.CharField(verbose_name='工作量',max_length=32)
